@@ -28,4 +28,18 @@ The clear_field() function resets the calculation field and text display.
 
 The layout of the calculator GUI is achieved using the grid() method. By specifying row and column positions, we position the buttons and text display field accordingly, creating a familiar calculator interface
 
+## Credits
 
+This project is based on the work of [Neuralnine](https://youtu.be/NzSCNjn4_RI). I would like to acknowledge their contribution to the initial codebase, which served as a reference for this project.
+
+## Modifications
+
+I made the following modifications to the original code:
+
+1. In the `evaluate_calculation()` function, I changed the line `calculation = " "` to `calculation = calculation.strip()`. This modification ensures that any leading or trailing spaces in the calculation are removed before evaluating it.
+
+2. In the `clear_field()` function, I added the line `text_result.insert(1.0, calculation)` after deleting the contents of the `text_result` widget. This change updates the widget to display the cleared calculation.
+
+These modifications address the issues in the original code that were causing the calculator to not provide any output. By removing the spaces and updating the display, the calculator can now evaluate and display the desired results.
+
+Feel free to explore the code to see the specific changes I made. If you have any further questions or need additional clarification, please let me know!
