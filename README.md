@@ -32,14 +32,21 @@ The layout of the calculator GUI is achieved using the grid() method. By specify
 
 This project is based on the work of [Neuralnine](https://youtu.be/NzSCNjn4_RI). I would like to acknowledge their contribution to the initial codebase, which served as a reference for this project.
 
+
 ## Modifications
 
-I made the following modifications to the original code:
+I made the following modifications to the original code to enhance the calculator:
 
-1. In the `evaluate_calculation()` function, I changed the line `calculation = " "` to `calculation = calculation.strip()`. This modification ensures that any leading or trailing spaces in the calculation are removed before evaluating it.
+1. **Added Background Colors:** I customized the calculator's appearance by adding background colors to the main window and various widgets. The background color of the main window is set to "lightgray" using `root.configure(bg="lightgray")`. The `text_result` widget, which displays the calculation and results, has a white background using `bg="white"`. Each button is also assigned a background color: numeric buttons (1 to 9, 0) have "lightblue" background, arithmetic operation buttons (+, -, *, /) have "orange" background, "C" button has "red" background, and "=" button has "green" background. You can easily 
 
-2. In the `clear_field()` function, I added the line `text_result.insert(1.0, calculation)` after deleting the contents of the `text_result` widget. This change updates the widget to display the cleared calculation.
+modify these colors to suit your preferences by changing the values of the `bg` parameter.
 
-These modifications address the issues in the original code that were causing the calculator to not provide any output. By removing the spaces and updating the display, the calculator can now evaluate and display the desired results.
+2. **Responsive Resizing:** I made the calculator GUI responsive by configuring the columns and rows to resize proportionally. This allows the calculator to adapt its size when the window is resized. The `root.columnconfigure(i, weight=1, minsize=50)` and `root.rowconfigure(i, weight=1, minsize=50)` lines inside the `for` loop ensure that all six columns and rows are configured to resize appropriately. This modification ensures that the calculator layout remains consistent and user-friendly regardless of the window's size.
 
-Feel free to explore the code to see the specific changes I made. If you have any further questions or need additional clarification, please let me know!
+3. **Improved Evaluation Logic:** In the `evaluate_calculation()` function, I replaced the line `calculation = " "` with 
+
+`calculation = calculation.strip()`. This change ensures that any leading or trailing spaces in the calculation are removed before evaluating it. This fix prevents potential syntax errors or invalid calculations that could arise due to accidental spaces.
+
+4. **Enhanced Display Logic:** In the `clear_field()` function, I added the line `text_result.insert(1.0, calculation)` after deleting the contents of the `text_result` widget. This improvement updates the widget to display the cleared calculation after the "C" button is pressed. The result is a more intuitive user experience, as the display is now consistent with the internal state of the calculator.
+
+Feel free to explore the code to see these specific changes. If you have any further questions or need additional clarification, please let me know! These modifications enhance the calculator's functionality, appearance, and responsiveness, making it more user-friendly and visually appealing.
